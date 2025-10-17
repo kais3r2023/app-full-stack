@@ -1,5 +1,10 @@
 import ArrowLogo from '@/components/ArrowLogo';
 import DollarLogo from '@/components/DollarLogo';
+import HomeLogo from '@/components/HomeLogo';
+import ProfileLogo from '@/components/ProfileLogo';
+import QRLogo from '@/components/QRLogo';
+import SquaresLogo from '@/components/SquaresLogo';
+import TimeLogo from '@/components/TimeLogo';
 import WalletLogo from '@/components/WalletLogo';
 import React from 'react';
 import {
@@ -25,7 +30,7 @@ export default function Profile() {
         }}
       >
         <UTransferLogo width={40} height={40} />
-        <Text style={{ color: '#000000', fontSize: 24, fontWeight: 'bold' }}>
+        <Text style={{ color: '#000000', fontSize: 18, fontWeight: 'bold' }}>
           Utransfer
         </Text>
       </View>
@@ -36,6 +41,8 @@ export default function Profile() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          width: '100%',
+          marginBottom: 40,
         }}
       >
         <View
@@ -132,8 +139,8 @@ export default function Profile() {
             resizeMode="cover"
             source={require('../../assets/images/gamer.jpg')}
             style={{
-              height: 100,
-              width: 200,
+              height: 150,
+              width: 250,
               borderRadius: 10,
               padding: 10,
               overflow: 'hidden',
@@ -171,15 +178,58 @@ export default function Profile() {
           </ImageBackground>
         </View>
       </View>
+
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 60,
+          backgroundColor: '#cdc7c7',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }}
+      >
+        <Pressable style={{ alignItems: 'center' }}>
+          <HomeLogo />
+          <Text style={{ color: 'black', fontSize: 12, fontWeight: 'bold' }}>
+            Inicio
+          </Text>
+        </Pressable>
+        <Pressable style={{ alignItems: 'center' }}>
+          <TimeLogo />
+          <Text style={{ color: 'black', fontSize: 10, fontWeight: 'bold' }}>
+            Movimientos
+          </Text>
+        </Pressable>
+        <Pressable style={{ alignItems: 'center' }}>
+          <QRLogo />
+        </Pressable>
+        <Pressable style={{ alignItems: 'center' }}>
+          <SquaresLogo />
+          <Text style={{ color: 'black', fontSize: 10, fontWeight: 'bold' }}>
+            Servicios
+          </Text>
+        </Pressable>
+        <Pressable style={{ alignItems: 'center' }}>
+          <ProfileLogo />
+          <Text style={{ color: 'black', fontSize: 10, fontWeight: 'bold' }}>
+            Perfil
+          </Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    padding: 25,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     backgroundColor: '#f6f6f6',
   },
 });

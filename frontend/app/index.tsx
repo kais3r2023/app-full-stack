@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios, { isAxiosError } from 'axios';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import {
@@ -27,60 +26,80 @@ export default function Login() {
     return true;
   };
 
+  // const handleLogin = async () => {
+
+  //   if (!validate()) {
+  //     return;
+  //   }
+
+  //   setLoading(true);
+
+  //   try {
+
+  //     const response = await axios.post('https://example.com/', {
+  //       username: username.trim(),
+  //       password,
+  //     });
+
+  //     const { token } = response.data;
+
+  //     if (!token) {
+  //       Alert.alert('Error', 'Respuesta inválida del servidor.');
+  //       return;
+  //     }
+
+  //     await AsyncStorage.setItem('authToken', token);
+
+  //     Alert.alert('Éxito', 'Has iniciado sesión correctamente.');
+
+  //     router.push('/profile/123');
+  //     return;
+  //   } catch (error) {
+  //     let message = 'Error desconocido';
+
+  //     if (isAxiosError(error)) {
+  //       if (error.response) {
+  //         message =
+  //           error.response.data?.message || 'Usuario o contraseña incorrectos';
+  //         return Alert.alert('Error', message);
+  //       }
+
+  //       if (error.request) {
+  //         message = 'No se pudo conectar con el servidor.';
+  //         return Alert.alert('Error', message);
+  //       }
+
+  //       message = error.message;
+  //       return Alert.alert('Error', message);
+  //     }
+
+  //     message = (error as Error).message;
+  //     return Alert.alert('Error', message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  //HandleLogin de prueba
+
   const handleLogin = async () => {
-    // Validación inicial
-    if (!validate()) {
-      return;
-    }
+    if (!validate()) return;
 
     setLoading(true);
 
     try {
-      // Solicitud POST con Axios
-      const response = await axios.post('https://example.com/api/login', {
-        username: username.trim(),
-        password,
-      });
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Axios ya parsea la respuesta
-      const { token } = response.data;
-
-      // Validar token recibido
-      if (!token) {
-        Alert.alert('Error', 'Respuesta inválida del servidor.');
-        return;
+      if (username === 'admin' && password === '1234') {
+        await AsyncStorage.setItem('authToken', 'fake-token-123');
+        Alert.alert('Éxito', 'Inicio de sesión simulado correctamente.');
+        router.push('/profile/123');
+      } else {
+        Alert.alert('Error', 'Usuario o contraseña incorrectos.');
       }
-
-      // Guardar token
-      await AsyncStorage.setItem('authToken', token);
-
-      Alert.alert('Éxito', 'Has iniciado sesión correctamente.');
-
-      // Redirigir al perfil
-      router.push('/profile/123');
-      return;
     } catch (error) {
-      let message = 'Error desconocido';
-
-      if (isAxiosError(error)) {
-        if (error.response) {
-          message =
-            error.response.data?.message || 'Usuario o contraseña incorrectos';
-          return Alert.alert('Error', message);
-        }
-
-        if (error.request) {
-          message = 'No se pudo conectar con el servidor.';
-          return Alert.alert('Error', message);
-        }
-
-        message = error.message;
-        return Alert.alert('Error', message);
-      }
-
-      // Si el error no viene de Axios
-      message = (error as Error).message;
-      return Alert.alert('Error', message);
+      console.error(error);
+      Alert.alert('Error', 'Algo salió mal.');
     } finally {
       setLoading(false);
     }
