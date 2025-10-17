@@ -1,3 +1,4 @@
+import UTransferLogo from '@/components/UTransferLogo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
@@ -92,8 +93,14 @@ export default function Login() {
 
       if (username === 'admin' && password === '1234') {
         await AsyncStorage.setItem('authToken', 'fake-token-123');
-        Alert.alert('Éxito', 'Inicio de sesión simulado correctamente.');
-        router.push('/profile/123');
+        Alert.alert('Éxito', 'Inicio de sesión simulado correctamente.', [
+          {
+            text: 'OK',
+            onPress: () => {
+              router.replace('/profile/123');
+            },
+          },
+        ]);
       } else {
         Alert.alert('Error', 'Usuario o contraseña incorrectos.');
       }
@@ -107,6 +114,20 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
+      <View
+        style={{
+          flexDirection: 'row',
+          display: 'flex',
+          alignItems: 'center',
+          alignSelf: 'center',
+          marginBottom: 60,
+        }}
+      >
+        <UTransferLogo width={40} height={40} />
+        <Text style={{ color: '#000000', fontSize: 25, fontWeight: 'bold' }}>
+          Utransfer
+        </Text>
+      </View>
       <Text style={styles.title}>Iniciar sesión</Text>
 
       <TextInput
@@ -189,7 +210,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   button: {
-    backgroundColor: '#0a84ff',
+    backgroundColor: '#fea409',
     padding: 14,
     borderRadius: 8,
     alignItems: 'center',
@@ -202,6 +223,6 @@ const styles = StyleSheet.create({
   link: {
     marginTop: 16,
     textAlign: 'center',
-    color: '#0a84ff',
+    color: '#00bcb3',
   },
 });

@@ -1,6 +1,15 @@
+import UTransferLogo from '@/components/UTransferLogo';
 import axios, { isAxiosError } from 'axios';
 import React, { useState } from 'react';
-import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export default function Register() {
   const [username, setUsername] = useState('');
@@ -74,6 +83,20 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
+      <View
+        style={{
+          flexDirection: 'row',
+          display: 'flex',
+          alignItems: 'center',
+          alignSelf: 'center',
+          marginBottom: 60,
+        }}
+      >
+        <UTransferLogo width={40} height={40} />
+        <Text style={{ color: '#000000', fontSize: 25, fontWeight: 'bold' }}>
+          Utransfer
+        </Text>
+      </View>
       <Text style={styles.title}>Registro</Text>
 
       <TextInput
@@ -109,7 +132,9 @@ export default function Register() {
         secureTextEntry
       />
 
-      <Button title="Registrarse" onPress={handleRegister} />
+      <TouchableOpacity>
+        <Button title="Registrarse" onPress={handleRegister} color="#fea409" />
+      </TouchableOpacity>
     </View>
   );
 }

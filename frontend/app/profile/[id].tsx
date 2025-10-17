@@ -27,10 +27,11 @@ export default function Profile() {
           flexDirection: 'row',
           display: 'flex',
           alignItems: 'center',
+          marginTop: 20,
         }}
       >
-        <UTransferLogo width={40} height={40} />
-        <Text style={{ color: '#000000', fontSize: 18, fontWeight: 'bold' }}>
+        <UTransferLogo width={30} height={30} />
+        <Text style={{ color: '#0a1630', fontSize: 18, fontWeight: 'bold' }}>
           Utransfer
         </Text>
       </View>
@@ -42,7 +43,8 @@ export default function Profile() {
           alignItems: 'center',
           justifyContent: 'space-between',
           width: '100%',
-          marginBottom: 40,
+          marginBottom: 60,
+          marginTop: 30,
         }}
       >
         <View
@@ -54,8 +56,8 @@ export default function Profile() {
           }}
         >
           <Image
-            source={{ uri: 'https://randomuser.me/api/portraits/men/7.jpg' }}
-            style={{ width: 40, height: 40, borderRadius: 75 }}
+            source={{ uri: 'https://randomuser.me/api/portraits/men/20.jpg' }}
+            style={{ width: 40, height: 45, borderRadius: 75, marginRight: 10 }}
           />
           <View>
             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
@@ -72,11 +74,11 @@ export default function Profile() {
       <View>
         <View
           style={{
-            backgroundColor: 'purple',
-            height: 150,
-            width: 250,
+            backgroundColor: '#783fe2',
+            height: 225,
+            width: 325,
             borderRadius: 10,
-            padding: 15,
+            padding: 30,
           }}
         >
           <View
@@ -87,13 +89,13 @@ export default function Profile() {
               alignSelf: 'flex-end',
             }}
           >
-            <UTransferLogo width={20} height={20} />
-            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>
+            <UTransferLogo width={25} height={25} />
+            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>
               Utransfer
             </Text>
           </View>
-          <Text style={{ color: 'white' }}>Saldo</Text>
-          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>
+          <Text style={{ color: 'white', marginBottom: 10 }}>Saldo</Text>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 35 }}>
             $1,300.25
           </Text>
           <View
@@ -103,11 +105,11 @@ export default function Profile() {
               justifyContent: 'space-between',
             }}
           >
-            <View style={{ flexDirection: 'row', gap: 5 }}>
+            <View style={{ flexDirection: 'row', gap: 15, marginTop: 20 }}>
               <Pressable style={{ alignItems: 'center' }}>
                 <ArrowLogo />
                 <Text
-                  style={{ color: 'white', fontSize: 12, fontWeight: 'bold' }}
+                  style={{ color: 'white', fontSize: 14, fontWeight: 'bold' }}
                 >
                   Enviar
                 </Text>
@@ -115,7 +117,7 @@ export default function Profile() {
               <Pressable style={{ alignItems: 'center' }}>
                 <WalletLogo />
                 <Text
-                  style={{ color: 'white', fontSize: 12, fontWeight: 'bold' }}
+                  style={{ color: 'white', fontSize: 14, fontWeight: 'bold' }}
                 >
                   Recibir
                 </Text>
@@ -123,27 +125,33 @@ export default function Profile() {
               <Pressable style={{ alignItems: 'center' }}>
                 <DollarLogo />
                 <Text
-                  style={{ color: 'white', fontSize: 12, fontWeight: 'bold' }}
+                  style={{ color: 'white', fontSize: 14, fontWeight: 'bold' }}
                 >
                   Recargar
                 </Text>
               </Pressable>
             </View>
-            <VisaLogo />
+            <View style={{ marginTop: 20 }}>
+              <VisaLogo />
+            </View>
           </View>
         </View>
         <View style={{ marginTop: 50 }}>
-          <Text style={{ fontSize: 16 }}> Mis ofertas</Text>
+          <Text style={{ fontSize: 20, color: '#0a1630', fontWeight: 'bold' }}>
+            {' '}
+            Mis ofertas
+          </Text>
 
           <ImageBackground
             resizeMode="cover"
             source={require('../../assets/images/gamer.jpg')}
             style={{
-              height: 150,
-              width: 250,
+              height: 175,
+              width: 300,
               borderRadius: 10,
               padding: 10,
               overflow: 'hidden',
+              marginTop: 30,
             }}
           >
             <View
@@ -165,9 +173,9 @@ export default function Profile() {
               style={{
                 position: 'absolute',
                 bottom: 10,
-                right: 10,
+                right: 30,
                 color: 'white',
-                fontSize: 14,
+                fontSize: 18,
                 fontWeight: 'bold',
                 textAlign: 'right',
               }}
@@ -182,11 +190,11 @@ export default function Profile() {
       <View
         style={{
           position: 'absolute',
-          bottom: 0,
+          bottom: 40,
           left: 0,
           right: 0,
-          height: 60,
-          backgroundColor: '#cdc7c7',
+          height: 70,
+          backgroundColor: '#edededf3',
           flexDirection: 'row',
           justifyContent: 'space-around',
           alignItems: 'center',
@@ -204,7 +212,15 @@ export default function Profile() {
             Movimientos
           </Text>
         </Pressable>
-        <Pressable style={{ alignItems: 'center' }}>
+        <Pressable
+          style={{
+            alignItems: 'center',
+            borderWidth: 1,
+            borderColor: 'black',
+            borderRadius: 50,
+            padding: 10,
+          }}
+        >
           <QRLogo />
         </Pressable>
         <Pressable style={{ alignItems: 'center' }}>
